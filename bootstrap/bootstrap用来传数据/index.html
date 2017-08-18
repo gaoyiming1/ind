@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../boot/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="../boot/css/bootstrap.css"/>
+   </head>
+<style type="text/css">
+    *{margin: 0;padding: 0;list-style: none;}
+    .navbar{
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .btn{
+        background: #00BFFF;
+        color: white;
+        margin-left: 3rem;
+    }
+    .profile{
+        margin-top: 5rem;
+        height: 29.5rem;
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 0;
+        padding: 0.5rem;
+        box-sizing: border-box;
+    }
+    .title3{
+        background-color: #DBDBDB;
+        height: 2rem;
+        line-height: 2rem;
+        margin-bottom: 0;
+        margin-top: 0;
+        color: white;
+        text-align: left;
+        border-left: 0.5rem solid transparent;
+    }
+    .profile-top{
+        height: 11rem;
+        border-radius: 5px;
+        background: linear-gradient(to top,#FFFB37,#35F2E6);
+
+    }
+
+    .profile-top img{
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        margin-top: 1rem;
+    }
+    .profile-text{
+        line-height: 2.5rem;
+        padding: 0.5rem;
+        text-align: left;
+    }
+    .profile-text>h4{
+        color: gray;
+        font-size: 20px;
+    }
+    .profile-text>.bt{
+        margin-left: 13.5rem;
+    }
+</style>
+<body>
+<div class="container">
+
+    <div id="box" class="row">
+
+    </div>
+    <!--导航条-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="请输入名字">
+                    </div>
+                    <button type="submit" class="btn btn-default" id="findu" >查找我的名字</button>
+                </form>
+                <form class="navbar-form navbar-right">
+                    <button type="submit" class="btn btn-default">参选</button>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="查找面试者">
+                    </div>
+                    <button type="submit" class="btn btn-default">查询</button>
+                </form>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--内容-->
+    <!--<div class="col-md-4 profile widget-shadow content">
+        <h4 class="title3">参选人</h4>
+        <div class="profile-top">
+            <img src="img/55_看图王.jpg"/>
+            <h4>已收到62个offer</h4>
+            <h5></h5>
+        </div>
+        <div class="profile-text">
+            <h4>个人简历：</h4>
+            <p class="gun">开始的产出指数基金</p>
+            <div style="height: 25px;"></div>
+            <h4>技术特长：</h4>
+            <p class="gun">啊睡觉吧欸你从啊速度擦调查阿萨大大</p>
+            <button type="button" class="btn btn-primary button bt" data-toggle="modal" data-target=".bs">建议</button>
+            <button type="button" class="btn btn-primary button">录用</button>
+        </div>
+    </div>-->
+</div>
+
+<script type="text/javascript">
+    $.ajax({
+        type: "get",
+        url: "http://47.92.37.168/php/index.php?C=Login&M=voteList",
+        async: true,
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+            $('#box').empty()
+            var html = '';
+            var img ='';
+            for(var i = 0; i < data.data.length; i++) {
+                if(data.data[i].img!=null){
+                    img='http://47.92.37.168/php/'+data.data[i].img;
+                }else{
+                    img='img/11.jpg';
+                }
+                html += '<div class="col-md-4 profile widget-shadow content">'+
+                    '<h4 class="title3">参选人</h4>'+
+                    '<div class="profile-top">'+
+                    '<img src="'+img+'" alt="">'+
+                    '<h4>'+ data.data[i].username+'</h4>'+
+                    '<h5>已经收到'+data.data[i].number+'个offer</h5>'+
+                    '</div>'+
+
+                    '<div class="profile-text">'+
+                    '<h4>个人简介：</h4>'+
+                    ' <p class="gun">'+data.data[i].introduce+'</p>'+
+                    '<h4>技术特长:</h4>'+
+                    '<p class="gun">'+data.data[i].strong+'</p>'+
+                    "</div>"+
+                    '<div class="profile-btm conter-jianyi">'+
+                    '<button type="button" class="btn btn-primary button bt jianji" data-toggle="modal" data-target=".bs">建议</button>'+
+                    '<button type="button" class="btn btn-primary button">录用</button>'+
+                    '</div>'+
+                    '</div>';
+            }
+            $('#box').append(html);
+        }
+    });
+
+    var jyid = '';
+//    delegate使用委托使程序员可以将方法分装在委托对象内
+    $('#box').delegate('.bt', 'click', function() {
+        jyid = this.parentElement.previousElementSibling.previousElementSibling.children[1].innerHTML;
+        console.log(111)
+    });
+    $(".tj").click(function () {
+        $.ajax({
+            type: "post",
+            url: "http://47.92.37.168/php/index.php?C=Login&M=suggest",
+            async: true,
+            dataType: 'json',
+            data:{
+                suggest:$("#message-text").val(),
+                id:jyid
+            },
+            success: function(data) {
+                if(data.code == 200) {
+                    alert('感谢您的评价，我将再接再厉!');
+                    $('#myModal').modal('hide');
+                }
+            }
+        })
+    })
+
+    $.ajax({
+        type: "post",
+        url: "http://47.92.37.168/php/index.php?C=Login&M=findSuggest",
+        async: true,
+        dataType: 'json',
+        data: {
+            'id': $('#findtext').val()//查询密码  （用户注册面试后返回的用户id）
+        },
+
+    })
+</script>
+</body>
+</html>
+
+<script src="../boot/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>

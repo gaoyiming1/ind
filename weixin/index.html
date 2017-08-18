@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+</head>
+<body>
+   <header>
+       <ul>
+           <li><a href=""><img src="images/a14151-2.png" alt=""></a></li>
+           <li><a href=""><img src="images/asc151-3.png" alt=""></a></li>
+       </ul>
+   </header>
+   <div class="lunbo" style="background: url(images/bj1.png) no-repeat; background-size: 100% 100%;">
+      <div>
+          <img src="images/asdasd-1.png" alt="" class="img2">
+          <p>哇哈哈</p>
+      </div>
+   </div>
+
+   <div class="box1">
+        <div><p>152.00</p><p>我的余额</p></div>
+        <div><p>152.00</p><p>我的优惠卷</p></div>
+        <div><p>152.00</p><p>我的积分</p></div>
+   </div>
+
+    <div class="box2">
+       <div>
+           <img src="images/a1.png" alt="" class="img1">
+           <p>我的订单</p>
+       </div>
+       <div><img src="images/img2.png" alt=""></div>
+   </div>
+   <div class="box3" style="width: 100%;height:0.17rem;background: #eeeded "></div>
+   <div class="box2">
+       <div>
+           <img style="margin-left: 0.08rem" src="images/a2.png" alt="" class="img1">
+           <p style="margin-left: 0.3rem">我的优惠卷</p>
+       </div>
+       <div><img src="images/img2.png" alt=""></div>
+   </div>
+   <div class="box2">
+       <div>
+           <img src="images/a3.png" alt="" class="img1">
+           <p>积分商城</p>
+       </div>
+       <div><img src="images/img2.png" alt=""></div>
+   </div>
+   <div class="box2">
+       <div>
+           <img src="images/a4.png" alt="" class="img1">
+           <p>活动中心</p>
+       </div>
+       <div><img src="images/img2.png" alt=""></div>
+   </div>
+   <div class="box3" style="width: 100%;height:0.17rem;background: #eeeded "></div>
+   <div class="box2">
+       <div>
+           <img src="images/a5.png" alt="" class="img1">
+           <p>常见问题</p>
+       </div>
+       <div><img src="images/img2.png" alt=""></div>
+   </div>
+  <div class="box4"></div>
+   <footer>
+       <ul>
+           <li><img src="images/w1.png" alt=""></li>
+           <li><img src="images/w2.png" alt=""></li>
+           <li><img src="images/w3.png" alt=""></li>
+       </ul>
+   </footer>
+   <script>
+       (function(doc, win){
+           var docEl = doc.documentElement,
+               resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+               recalc = function(){
+                   var clientWidth = docEl.clientWidth;
+                   if(!clientWidth) return;
+                   docEl.style.fontSize = 100 * (clientWidth / 520) + 'px';
+               };
+           if(!doc.addEventListener) return;
+           win.addEventListener(resizeEvt, recalc, false);
+           doc.addEventListener('DOMContentLoaded', recalc, false);
+       })(document, window);
+   </script>
+</body>
+</html>

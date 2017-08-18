@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+
+<div id="box">
+
+</div>
+
+<script>
+    $.ajax({
+        type: "get",
+        url: "http://47.92.37.168/php/index.php?C=Login&M=voteList",
+        async: true,
+        dataType: "json",
+        success: function(data) {
+            //			console.log(data);
+            $('#box').empty()
+            var html = '';
+            var img ='';
+            for(var i = 0; i < data.data.length; i++) {
+                if(data.data[i].img!=null){
+                    img='http://47.92.37.168/php/'+data.data[i].img;
+                }else{
+                    img='images/img1.png';
+                }
+                html += '<div class="col-md-4 profile widget-shadow content">' +
+                    '<h4 class="title3">参选人</h4>' +
+                    '<div class="profile-top">' +
+                    '<img src="'+img+'" alt="" style="width:30%;height:30%;">' +
+                    '<h4>' + data.data[i].username + '</h4>' +
+                    '<h5>收到' + data.data[i].number + '个offer</h5>' +
+                    '</div>' +
+                    '<div class="profile-text">' +
+                    '<h4>个人简介：</h4>' +
+                    '<p class="gun">' + data.data[i].introduce + '</p>' +
+                    '<div style=""></div>' +
+                    '<h4>技术特长:</h4>' +
+                    '<p class="gun">' + data.data[i].strong + '</p>' +
+                    '</div>' +
+                    '<div class="profile-btm conter-jianyi">' +
+                    '<button type="button" class="btn btn-primary button jianyi" data-toggle="modal" data-target=".bs" thisid="' + data.data[i].id + '">建议</button>' +
+                    '<button type="button" class="btn btn-primary button luyong" thisid="' + data.data[i].id + '">录用</button>' +
+                    '</div>' +
+                    '</div>';
+            }
+            $('#box').append(html);
+
+        }
+    });
+</script>
+
+</body>
+</html>

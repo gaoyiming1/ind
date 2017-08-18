@@ -1,0 +1,116 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 0.43rem;
+  text-decoration: none;
+  font-style: normal;
+  color: #393a3e; }
+
+header {
+  width: 100%;
+  height: 0.53rem;
+  background: #393a3e; }
+  header ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none; }
+    header ul li:nth-child(1) img:nth-child(1) {
+      margin-left: 0.36rem;
+      width: 0.2rem;
+      height: 0.2rem; }
+    header ul li:nth-child(2) img {
+      margin-right: 0.36rem;
+      width: 0.1rem; }
+
+.lunbo {
+  width: 100%;
+  height: 2.58rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .lunbo div {
+    text-align: center; }
+    .lunbo div img {
+      width: 1.58rem;
+      height: 1.67rem; }
+    .lunbo div p {
+      color: #ffffff;
+      font-size: 0.23rem; }
+
+.box1 {
+  width: 100%;
+  height: 0.86rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.04rem; }
+  .box1 div {
+    width: 1.62rem;
+    height: 0.62rem;
+    border-left: 1px solid #d5d4d4; }
+    .box1 div p {
+      font-size: 0.23rem;
+      text-align: center; }
+  .box1 div:nth-child(1) {
+    margin-right: -0.1rem; }
+
+.box2 {
+  width: 100%;
+  height: 0.64rem;
+  display: flex;
+  justify-content: space-between; }
+  .box2 div:nth-child(1) {
+    width: 2.12rem;
+    height: 0.64rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .box2 div:nth-child(1) img {
+      width: 0.31rem;
+      height: 0.3rem; }
+    .box2 div:nth-child(1) p {
+      font-size: 0.26rem; }
+  .box2 div:nth-child(2) {
+    width: 13%;
+    display: flex;
+    align-items: center; }
+    .box2 div:nth-child(2) img {
+      width: 0.18rem;
+      height: 0.2rem; }
+
+.box4 {
+  width: 100%;
+  height: 0.79rem;
+  background: #eeeded; }
+
+footer {
+  width: 100%;
+  height: 0.7rem;
+  background: #ffffff; }
+  footer ul {
+    width: 100%;
+    height: 0.7rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    footer ul li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.74rem;
+      height: 0.7rem; }
+      footer ul li img {
+        width: 0.56rem;
+        height: 0.44rem; }
+
+.img1:hover {
+  transition: all 1s linear;
+  transform: scale(2, 2); }
+
+.img2:hover {
+  transition: all 1s linear;
+  transform: scale(1.5, 1.5); }
+
+/*# sourceMappingURL=index.css.map */

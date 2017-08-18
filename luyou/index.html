@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-router.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>路由使用</h1>
+        <p>
+            <!--使用router-link来导航-->
+            <!--通过传入‘to’属性指定链接-->
+            <!--<route-link>默认会被渲染成一个‘<a>’标签-->
+            <router-link to="/foo" style="text-decoration: none">恭喜你进入恶魔世界</router-link>
+            <router-link to="/bar" style="text-decoration: none">恭喜你进入天使世界</router-link>
+        </p>
+         <!--路由出口-->
+         <!--路由匹配到的组件将渲染在这里-->
+        <router-view></router-view>
+
+        <div id="div1"></div>
+        <div id="div2"></div>
+    </div>
+
+    <script>
+
+        //1.定义路由组件
+        const Foo = {template:'<div>foo</div>'}
+        const Bar = {template:'<div>bar</div>'}
+        //2.定义路由
+        const routes = [
+            { path:'/foo',component: Foo},
+            { path:'/bar',component: Bar}
+        ]
+        //3.创建router实例，然后传'routes'
+          const  router = new VueRouter({
+             routes :routes
+          })
+        //4
+        const app = new Vue({
+            router:router
+        }).$mount('#app')
+    </script>
+</body>
+</html>

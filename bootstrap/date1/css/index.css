@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    height: 62px;
+    background: #32cd32;
+    color: whitesmoke;
+}
+header ul{
+    width: 100%;
+    list-style: none;
+}
+header ul li{
+    line-height: 62px;
+}

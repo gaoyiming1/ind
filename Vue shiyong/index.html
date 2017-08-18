@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+  <div id="myVue">
+
+      <textarea v-model="a" style="width: 80%;height: 500px;border: 1px solid #ff0000;"></textarea>
+      {{a.length}}
+      <!--<input type="text" v-model="a"/>-->
+  </div>
+
+  <script>
+      new Vue ({
+          el:"#myVue",
+          data:{
+              a:"你是谁",
+              b:"你是"
+          }
+      })
+  </script>
+</body>
+</html>

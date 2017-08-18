@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .chaxun input{
+            width: 200px;
+            height: 38px;
+            border-radius: 5px;
+            list-style: none;
+            border:none;
+            line-height: 38px;
+        }
+        .chaxun{
+            color: white;
+        }
+        .chaxun button{
+            width: 70px;
+            height: 38px;
+        }
+        .chaxun input{
+            color:gray;
+        }
+        .chaxun1 button{
+            width: 120px;
+            height: 38px;
+        }
+        .box1{
+            padding-top: 15px;
+        }
+        .xia{
+            width:300px;
+            height: 500px;
+            border:1px solid red;
+            margin-left: 110px;
+        }
+        .img1{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+   <nav class="navbar navbar-default">
+       <div class="container-fluid text-center box1">
+           <div class="col-lg-4 col-sm-12 chaxun">
+               <button class="bg-primary">参选</button>
+           </div>
+           <div class="col-lg-4 col-sm-12 chaxun">
+               <input type="text" placeholder="查找面试者"><button class="bg-primary">查询</button>
+           </div>
+           <div class="col-lg-4 col-sm-12 chaxun chaxun1">
+               <input type="text" placeholder="请输入你的名字"><button class="bg-primary">查找我的名字</button>
+           </div>
+       </div>
+   </nav>
+   <div class="Zbox2">
+        <div class="col-md-4 col-xs-12 xia col-lg-offset-2">
+            <h2>参选人</h2>
+            <img src="img/1.jpg" class="img1" alt="">
+            <h2>高一鸣</h2>
+            <p>个人简介：</p>
+            <p>大家好我叫高一鸣</p>
+            <p>技能特长：玩代码</p>
+        </div>
+        <div class="col-md-4 col-xs-12 xia">
+            <h2>参选人</h2>
+            <img src="img/1.jpg" class="img1" alt="">
+            <h2>高一鸣</h2>
+            <p>个人简介：</p>
+            <p>大家好我叫高一鸣</p>
+            <p>技能特长：玩代码</p>
+        </div>
+        <div class="col-md-4 col-xs-12 xia">
+            <h2>参选人</h2>
+            <img src="img/1.jpg" class="img1" alt="">
+            <h2>高一鸣</h2>
+            <p>个人简介：</p>
+            <p>大家好我叫高一鸣</p>
+            <p>技能特长：玩代码</p>
+        </div>
+   </div>
+</body>
+</html>
+<script>
+    $.ajax({
+        type: "get",
+        url: "http://47.92.37.168/php/index.php?C=Login&M=voteList",
+        async: true,
+        dataType: "json",
+        success: function(data) {
+            $('#cxr_zhanshi').empty()
+            var html = '';
+            var img ='';
+            for(var i = 0; i < data.data.length; i++) {
+                if(data.data[i].img !=null){
+                    img='http://47.92.37.168/php/'+data.data[i].img;
+                }else{
+                    img='images/img1.png';
+                }
+                html += '<div class="col-md-4 col-xs-12 xia col-lg-offset-2"><h2>参选人</h2><img src="img/1.jpg" class="img1" alt=""><h2>高一鸣</h2> <p>个人简介：</p> ' +
+                    '<p>大家好我叫高一鸣</p> <p>技能特长：玩代码</p> </div> <div class="col-md-4 col-xs-12 xia"> <h2>参选人</h2> <img src="img/1.jpg" class="img1" alt=""> <h2>高一鸣</h2> <p>个人简介：</p> <p>大家好我叫高一鸣</p> ' +
+                    '<p>技能特长：玩代码</p> </div> <div class="col-md-4 col-xs-12 xia"> <h2>参选人</h2> <img src="img/1.jpg" class="img1" alt=""> <h2>高一鸣</h2> ' +
+                    '<p>个人简介：</p> <p>大家好我叫高一鸣</p> <p>技能特长：玩代码</p> </div>'
+            $('#Zbox2').append(html);
+
+        }
+    });
+</script>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
